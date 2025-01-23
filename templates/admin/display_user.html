@@ -1,0 +1,181 @@
+{% load static %}
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Sports Table</title>
+    <!-- Meta Tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="keywords" content="" />
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!-- //Meta Tags -->
+
+    <!-- Style-sheets -->
+    <!-- Bootstrap Css -->
+    <link href="{% static 'admin/css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
+    <!-- Bootstrap Css -->
+    <!-- Common Css -->
+    <link href="{% static 'admin/css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+    <!--// Common Css -->
+    <!-- Nav Css -->
+    <link rel="stylesheet" href="{% static 'admin/css/style4.css' %}">
+    <!--// Nav Css -->
+    <!-- Fontawesome Css -->
+    <link href="{% static 'admin/css/Fontawesome-all.css' %}" rel="stylesheet">
+    <return render(request, 'jointable.html')-// Fontawesome Css -->
+    <!--// Style-sheets -->
+
+
+    <!--web-fonts-->
+    <link href="//fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <!--//web-fonts-->
+</head>
+
+<body>
+    {% include 'admin/sidebar.html' %}
+
+        <!-- Page Content Holder -->
+        <div id="content">
+           
+            <!-- main-heading -->
+            <h2 class="main-title-w3layouts mb-2 text-center">User Table</h2><br><br>
+            <!--// main-heading -->
+
+            <!-- Tables content -->
+            <section class="tables-section">
+             
+                <div class="outer-w3-agile mt-3">
+                    <!-- <h4 class="tittle-w3-agileits mb-4">User Table</h4><br> -->
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">User ID</th>
+                                <th scope="col">User Firstname</th>
+                                <th scope="col">Location_Id</th>
+                                <th scope="col">User_Type_Id</th>
+                                <th scope="col">User Gender</th>
+                                <th scope="col">User DOB</th>
+                                <th scope="col">User Email</th>
+                                <th scope="col">User Contact</th>
+                                <th scope="col">User Lastname</th>
+                                <th scope="col">User Password</th>
+                                <th scope="col">User Address</th>
+                                <th scope="col">User Pin</th>
+                                <th scope="col">Action</th>
+                                <!-- <th scope="col">Location ID</th>
+                                <th scope="col">User_Type_Id</th> -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for i in mydata %}
+                            <tr>
+                                <td>{{i.0}}</td>
+                                <td>{{i.1}}</td>
+                                <td>{{i.2}}</td>
+                                <td>{{i.3}}</td>
+                                <td>{{i.4}}</td>
+                                <td>{{i.5}}</td>
+                                <td>{{i.6}}</td>
+                                <td>{{i.7}}</td>
+                                <td>{{i.8}}</td>
+                                <td>{{i.9}}</td>
+                                <td>{{i.10}}</td>
+                                <td>{{i.11}}</td>
+                                <td><a href='deleteuser/{{i.0}}'>Delete</a></td>
+                           </tr>
+                            {% endfor %}
+                            <!-- <tr>
+                                <th scope="row">1</td>
+                                <td>Priyanshi</td>
+                                <td>Female</td>
+                                <td>26-09-2003</td>
+                                <td>priyanshighoghari@gmail.com</td>
+                                <td>8140664715</td> -->
+                                <!-- <th>101</th>
+                                <th>1</th>
+                                 -->
+                            <!-- </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Heer</td>
+                                <td>Female</td>
+                                <td>12-12-2003</th>
+                                <td>heerparikh@gmail.com</td>
+                                <td>8799101075</td> -->
+                                <!-- <th></th>
+                                <th></th> -->
+                            <!-- </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>Kanishk</td>
+                                <td>Male</td>
+                                <td>02-02-2004</th>
+                                <td>kanishkkhandelwal@gmail.com</td>
+                                <td>9828567331</td> -->
+                                <!-- <th></th>
+                                <th></th> -->
+                            <!-- </tr> -->
+
+                            </tbody>
+                    </table>
+                </div>
+                <!--// table5 -->
+
+            </section>
+
+        </div>
+    </div>
+
+
+    <!-- Required common Js -->
+    <script src='js/jquery-2.2.3.min.js'></script>
+    <!-- //Required common Js -->
+
+    <!-- Sidebar-nav Js -->
+    <script>
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+    </script>
+    <!--// Sidebar-nav Js -->
+
+    <!-- dropdown nav -->
+    <script>
+        $(document).ready(function () {
+            $(".dropdown").hover(
+                function () {
+                    $('.dropdown-menu', this).stop(true, true).slideDown("fast");
+                    $(this).toggleClass('open');
+                },
+                function () {
+                    $('.dropdown-menu', this).stop(true, true).slideUp("fast");
+                    $(this).toggleClass('open');
+                }
+            );
+        });
+    </script>
+    <!-- //dropdown nav -->
+
+    <!-- Js for bootstrap working-->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- //Js for bootstrap working -->
+
+</body>
+
+</html>

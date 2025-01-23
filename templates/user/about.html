@@ -1,0 +1,168 @@
+{% extends 'user/header.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="meta description">
+
+    <title>TEAM UP!</title>
+
+    <!--=== Favicon ===-->
+    <link rel="shortcut icon" href="{% static 'user/images/voltage.png' %}" type="image/x-icon" />
+
+    <!--== Google Fonts ==-->
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Droid+Serif:400,400i,700,700i" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat:400,700" />
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--=== Bootstrap CSS ===-->
+    <link href="{% static 'user/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!--=== Font-Awesome CSS ===-->
+    <link href="{% static 'user/css/font-awesome.css' %}" rel="stylesheet">
+    <!--=== Plugins CSS ===-->
+    <link href="{% static 'user/css/plugins.css' %}" rel="stylesheet">
+    <!--=== Main Style CSS ===-->
+    <link href="{% static 'user/css/style.css' %}" rel="stylesheet">
+
+    <!-- Modernizer JS -->
+    <script src="{% static 'user/css/modernizr-2.8.3.min.js' %}"></script>
+    <style>
+        .error {
+            color: red !important;
+        }
+    </style>
+</head>
+
+<body>
+    <!--== Header Area Start ==-->
+    {% include 'user/header.html' %}
+    <!--== Header Area End ==-->
+
+    <!--== Search Box Area Start ==-->
+    <div class="body-popup-modal-area">
+        <span class="modal-close"><img src="assets/img/cancel.png" alt="Close" class="img-fluid" /></span>
+        <div class="modal-container d-flex">
+            <div class="search-box-area">
+                <div class="search-box-form">
+                    <form action="#" method="post">
+                        <input type="search" placeholder="type keyword and hit enter" />
+                        <button class="btn" type="button"><i class="fa fa-search"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--== Search Box Area End ==-->
+
+    <!--== Page Title Area Start ==-->
+    <div id="page-title-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <div class="page-title-content">
+                        <h1>About Us</h1>
+                        <ul class="breadcrumb">
+                            <li><a href="{% url 'home' %}">Home</a></li>
+                            <li><a href="userapp/about" class="active">About Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--== Page Title Area End ==-->
+
+    <!-- Section Title -->
+    <div class="section-title big-title" style="background: url('/static/user/img/sports.jpg');">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10">
+                    <center>
+                        <h1>About Us</h1>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Section Title -->
+
+    <!-- Section Area - Content Central -->
+    <section class="content-info">
+
+        <!-- White Section -->
+        <div class="white-section paddings">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <img src="{% static 'user/images/logo.png' %}" alt="">
+
+                    </div>
+                    <div class="col-lg-7">
+                        <h4 class="subtitle">
+                            <!-- <span>Company Value</span> -->
+                            Who Are We
+                        </h4>
+                        <p>TeamUp! is a web application that helps people with the same interest in sports to
+                            network, have conversations and organise events.<br>
+                            We strive to provide a hassle-free transaction and a friendly and easy to understand user
+                            interface.</p>
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <h5>Our Mission</h5>
+                                <p>As a sports enthusiast company, we have made it our mission to encourage people to
+                                    play sports outside of the internet, to keep their passion for their favourite games
+                                    alive and to create a community where people can share their thoughts and have
+                                    conversations.</p>
+                            </div>
+                            <div class="col-lg-6">
+                                <h5>Our Vision</h5>
+                                <p>TeamUp! can help users make new friends, socialise, and learn about new sports
+                                    by connecting with others who are interested in sports.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        </div>
+        <!-- End White Section -->
+
+    </section>
+
+    <!-- Footer Area Start -->
+    {% include 'user/footer.html' %}
+    <!-- Footer Area End -->
+
+    <!-- Scroll to Top Start -->
+    <a href="#" class="scrolltotop"><i class="fa fa-angle-up"></i></a>
+    <!-- Scroll to Top End -->
+
+    <!--=======================Javascript============================-->
+    <!--=== Jquery Min Js ===-->
+    <script src="{% static 'user/js/jquery-3.3.1.min.js' %}"></script>
+    <!--=== Jquery Migrate Min Js ===-->
+    <script src="{% static 'user/js/jquery-migrate-1.4.1.min.js' %}"></script>
+    <!--=== Popper Min Js ===-->
+    <script src="{% static 'user/js/popper.min.js'%}"></script>
+    <!--=== Bootstrap Min Js ===-->
+    <script src="{% static 'user/js/bootstrap.min.js'%}"></script>
+    <!--=== Plugins Min Js ===-->
+    <script src="{% static 'user/js/plugins.js'%}"></script>
+
+    <!--=== Active Js ===-->
+    <script src="{% static 'user/js/active.js'%}"></script>
+</body>
+
+</html>
+{% endblock content %}

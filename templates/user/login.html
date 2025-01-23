@@ -1,0 +1,193 @@
+{% extends 'user/header.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="meta description">
+
+    <title>TEAM UP!</title>
+
+    <!--=== Favicon ===-->
+    <link rel="shortcut icon" href="{% static 'user/images/voltage.png' %}" type="image/x-icon" />
+
+    <!--== Google Fonts ==-->
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Droid+Serif:400,400i,700,700i" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat:400,700" />
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--=== Bootstrap CSS ===-->
+    <link href="{% static 'user/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!--=== Font-Awesome CSS ===-->
+    <link href="{% static 'user/css/font-awesome.css' %}" rel="stylesheet">
+    <!--=== Plugins CSS ===-->
+    <link href="{% static 'user/css/plugins.css' %}" rel="stylesheet">
+    <!--=== Main Style CSS ===-->
+    <link href="{% static 'user/css/style.css' %}" rel="stylesheet">
+
+    <!-- Modernizer JS -->
+    <script src="{% static 'user/css/modernizr-2.8.3.min.js' %}"></script>
+    <style>
+        .error {
+            color: red !important;
+        }
+    </style>
+</head>
+
+<body>
+    <!--== Header Area Start ==-->
+    {% include 'user/header.html' %}
+    <!--== Header Area End ==-->
+
+    <!--== Search Box Area Start ==-->
+    <div class="body-popup-modal-area">
+        <span class="modal-close"><img src="assets/img/cancel.png" alt="Close" class="img-fluid" /></span>
+        <div class="modal-container d-flex">
+            <div class="search-box-area">
+                <div class="search-box-form">
+                    <form action="#" method="post">
+                        <input type="search" placeholder="type keyword and hit enter" />
+                        <button class="btn" type="button"><i class="fa fa-search"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--== Search Box Area End ==-->
+
+    <!--== Page Title Area Start ==-->
+    <div id="page-title-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <div class="page-title-content">
+                        <h1>Member Area</h1>
+                        <ul class="breadcrumb">
+                            <li><a href="{% url 'home' %}">Home</a></li>
+                            <li><a href="{% url 'login' %}" class="active">Login & Register</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--== Page Title Area End ==-->
+
+    <!--== Page Content Wrapper Start ==-->
+    <div id="page-content-wrapper" class="p-9">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 m-auto">
+                    <!-- Login & Register Content Start -->
+                    <div class="login-register-wrapper">
+                        <!-- Login & Register tab Menu -->
+                        <nav class="nav login-reg-tab-menu">
+                            <a class="active" id="login-tab" data-toggle="tab" href="{% url 'login' %}">Login</a>
+                        </nav>
+                        <!-- Login & Register tab Menu -->
+
+                        <div class="tab-content" id="login-reg-tabcontent">
+                            <div class="tab-pane fade show active" id="login" role="tabpanel">
+                                <div class="login-reg-form-wrap">
+
+                                    <form method="POST" id="myform">
+                                        {% csrf_token %}
+                                        <div class="single-input-item">
+                                            <input type="email" placeholder="Enter your Email" name="email" id="email"
+                                                required />
+                                        </div>
+
+                                        <div class="single-input-item">
+                                            <input type="password" placeholder="Enter your Password" name="password"
+                                                id="password" required />
+                                        </div>
+
+                                        <div class="single-input-item">
+                                            <div
+                                                class="login-reg-form-meta d-flex align-items-center justify-content-between">
+                                                <div class="remember-meta">
+                                                    <a href="{% url 'register' %}" class="forget-pwd">Don't Have
+                                                        Account?</a>
+                                                </div>
+
+                                                <a href="/userapp/forgot" class="forget-pwd">Forgot Password?</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="single-input-item">
+                                            <button type="submit" class="btn-login">Login</button>
+                                        </div>
+                                    </form>
+                                    <script>
+                                        // validate signup form on keyup and submit
+                                        $("#myform").validate({
+                                            rules: {
+                                                email: {
+                                                    required: true,
+                                                    email: true
+                                                },
+                                                password: {
+                                                    required: true,
+                                                    minlength: 6
+                                                },
+                                            },
+                                            messages: {
+                                                email: "Please enter a valid email address",
+                                                password: {
+                                                    required: "Please Enter Password",
+                                                    minlength: "Your password must be at least 6 characters long"
+                                                },
+                                            }
+                                        });
+                                        function Validate(no) {
+                                            no.value = no.value.replace(/[^ 0-9\n\r]+/g, '');
+                                        }
+                                        function Validatestring(no) {
+                                            no.value = no.value.replace(/[^ a-z A-Z\n\r]+/g, '');
+                                        }
+
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Login & Register Content End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--== Page Content Wrapper End ==-->
+
+    <!-- Footer Area Start -->
+    {% include 'user/footer.html' %}
+    <!-- Footer Area End -->
+
+    <!-- Scroll to Top Start -->
+    <a href="#" class="scrolltotop"><i class="fa fa-angle-up"></i></a>
+    <!-- Scroll to Top End -->
+
+    <!--=======================Javascript============================-->
+    <!--=== Jquery Min Js ===-->
+    <script src="{% static 'user/js/jquery-3.3.1.min.js' %}"></script>
+    <!--=== Jquery Migrate Min Js ===-->
+    <script src="{% static 'user/js/jquery-migrate-1.4.1.min.js' %}"></script>
+    <!--=== Popper Min Js ===-->
+    <script src="{% static 'user/js/popper.min.js'%}"></script>
+    <!--=== Bootstrap Min Js ===-->
+    <script src="{% static 'user/js/bootstrap.min.js'%}"></script>
+    <!--=== Plugins Min Js ===-->
+    <script src="{% static 'user/js/plugins.js'%}"></script>
+
+    <!--=== Active Js ===-->
+    <script src="{% static 'user/js/active.js'%}"></script>
+</body>
+
+</html>
+{% endblock content %}

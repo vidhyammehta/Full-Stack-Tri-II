@@ -1,0 +1,149 @@
+{% extends 'user/header.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="meta description">
+
+    <title>TEAM UP!</title>
+
+    <!--=== Favicon ===-->
+    <link rel="shortcut icon" href="{% static 'user/images/voltage.png' %}" type="image/x-icon" />
+
+    <!--== Google Fonts ==-->
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Droid+Serif:400,400i,700,700i" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat:400,700" />
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--=== Bootstrap CSS ===-->
+    <link href="{% static 'user/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!--=== Font-Awesome CSS ===-->
+    <link href="{% static 'user/css/font-awesome.css' %}" rel="stylesheet">
+    <!--=== Plugins CSS ===-->
+    <link href="{% static 'user/css/plugins.css' %}" rel="stylesheet">
+    <!--=== Main Style CSS ===-->
+    <link href="{% static 'user/css/style.css' %}" rel="stylesheet">
+
+    <!-- Modernizer JS -->
+    <script src="{% static 'user/css/modernizr-2.8.3.min.js' %}"></script>
+    <style>
+        .error {
+            color: red !important;
+        }
+    </style>
+</head>
+
+<body>
+    <!--== Header Area Start ==-->
+    {% include 'user/header.html' %}
+    <!--== Header Area End ==-->
+
+    <!--== Search Box Area Start ==-->
+    <div class="body-popup-modal-area">
+        <span class="modal-close"><img src="assets/img/cancel.png" alt="Close" class="img-fluid" /></span>
+        <div class="modal-container d-flex">
+            <div class="search-box-area">
+                <div class="search-box-form">
+                    <form action="#" method="post">
+                        <input type="search" placeholder="type keyword and hit enter" />
+                        <button class="btn" type="button"><i class="fa fa-search"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--== Search Box Area End ==-->
+
+    <!--== Page Title Area Start ==-->
+    <div id="page-title-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <div class="page-title-content">
+                        <h1>Blog</h1>
+                        <ul class="breadcrumb">
+                            <li><a href="{% url 'home' %}">Home</a></li>
+                            <li><a href="{% url 'blog' %}" class="active">Blog</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--== Page Title Area End ==-->
+
+    <!--== Page Content Wrapper Start ==-->
+    <div id="page-content-wrapper" class="p-9">
+        <div class="container">
+            <div class="row">
+                <!-- Blog Page Content Start -->
+                <div class="col-lg-12">
+                    <div class="blog-content-wrap">
+                        <div class="row">
+                            {% for i in mydata %}
+                            <div class="col-md-6">
+                                <!-- Single Blog Item Start -->
+                                <div class="single-blog-wrap">
+                                    <figure class="blog-thumb">
+                                        <a href="/userapp/single_blog/{{i.0}}"><img src="/media/Blog/{{i.4}}" alt="blog"
+                                                class="img-fluid" /></a>
+                                        <figcaption class="blog-icon">
+                                            <a href="/userapp/single_blog/{{i.0}}"><i
+                                                    class="fa fa-file-image-o"></i></a>
+                                        </figcaption>
+                                    </figure>
+
+                                    <div class="blog-details">
+                                        <h3><a href="/userapp/single_blog/{{i.0}}">{{i.1}}</a></h3>
+                                        <span class="post-date">{{i.2}}</span>
+                                        <p>{{i.3}}</p>
+                                        <a href="/userapp/single_blog/{{i.0}}" class="btn-long-arrow">Read More</a>
+                                    </div>
+                                </div>
+                                <!-- Single Blog Item End -->
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <!-- Blog Page Content End -->
+            </div>
+        </div>
+    </div>
+    <!--== Page Content Wrapper End ==-->
+
+
+    <!-- Footer Area Start -->
+    {% include 'user/footer.html' %}
+    <!-- Footer Area End -->
+
+    <!-- Scroll to Top Start -->
+    <a href="#" class="scrolltotop"><i class="fa fa-angle-up"></i></a>
+    <!-- Scroll to Top End -->
+
+    <!--=======================Javascript============================-->
+    <!--=== Jquery Min Js ===-->
+    <script src="{% static 'user/js/jquery-3.3.1.min.js' %}"></script>
+    <!--=== Jquery Migrate Min Js ===-->
+    <script src="{% static 'user/js/jquery-migrate-1.4.1.min.js' %}"></script>
+    <!--=== Popper Min Js ===-->
+    <script src="{% static 'user/js/popper.min.js'%}"></script>
+    <!--=== Bootstrap Min Js ===-->
+    <script src="{% static 'user/js/bootstrap.min.js'%}"></script>
+    <!--=== Plugins Min Js ===-->
+    <script src="{% static 'user/js/plugins.js'%}"></script>
+
+    <!--=== Active Js ===-->
+    <script src="{% static 'user/js/active.js'%}"></script>
+</body>
+
+</html>
+{% endblock content %}

@@ -1,0 +1,222 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="meta description">
+
+    <title>TEAM UP!</title>
+
+    <!--=== Favicon ===-->
+    <link rel="shortcut icon" href="{% static 'user/images/voltage.png' %}" type="image/x-icon" />
+
+    <!--== Google Fonts ==-->
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Droid+Serif:400,400i,700,700i" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat:400,700" />
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--=== Bootstrap CSS ===-->
+    <link href="{% static 'user/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!--=== Font-Awesome CSS ===-->
+    <link href="{% static 'user/css/font-awesome.css' %}" rel="stylesheet">
+    <!--=== Plugins CSS ===-->
+    <link href="{% static 'user/css/plugins.css' %}" rel="stylesheet">
+    <!--=== Main Style CSS ===-->
+    <link href="{% static 'user/css/style.css' %}" rel="stylesheet">
+
+    <!-- Modernizer JS -->
+    <script src="{% static 'user/css/modernizr-2.8.3.min.js' %}"></script>
+    <style>
+        .error {
+            color: red !important;
+        }
+    </style>
+</head>
+
+<body>
+    <!--== Header Area Start ==-->
+    {% include 'user/header.html' %}
+    <!--== Header Area End ==-->
+
+    <!--== Search Box Area Start ==-->
+    <div class="body-popup-modal-area">
+        <span class="modal-close"><img src="assets/img/cancel.png" alt="Close" class="img-fluid" /></span>
+        <div class="modal-container d-flex">
+            <div class="search-box-area">
+                <div class="search-box-form">
+                    <form action="#" method="post">
+                        <input type="search" placeholder="type keyword and hit enter" />
+                        <button class="btn" type="button"><i class="fa fa-search"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--== Search Box Area End ==-->
+
+    <!--== Page Title Area Start ==-->
+    <div id="page-title-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <div class="page-title-content">
+                        <h1>Member Area</h1>
+                        <ul class="breadcrumb">
+                            <li><a href="{% url 'home' %}">Home</a></li>
+                            <li><a href="{% url 'create_event' %}" class="active">Create Event</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--== Page Title Area End ==-->
+
+    <!--== Page Content Wrapper Start ==-->
+    <div id="page-content-wrapper" class="p-9">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 m-auto">
+                    <!-- Login & Register Content Start -->
+                    <div class="login-register-wrapper">
+                        <!-- Login & Register tab Menu -->
+
+                        <!-- Login & Register tab Menu -->
+                        <form id="myform" method="POST">
+                            {% csrf_token %}
+                            <div class="single-input-item">
+                                <input type="text" id=" event_name " name=" event_name " onkeyup="Validatestring(this)"
+                                    placeholder="Enter Your Event Name" required />
+                            </div>
+
+                            <div class="single-input-item">
+                                <input type="text" id="sports_name" name="sports_name" onkeyup="Validatestring(this)"
+                                    placeholder="Enter Your Sport Name" required />
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="single-input-item">
+                                        <input type="date" id="start_date" name="start_date"
+                                            placeholder="Enter your Event Date" required />
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="single-input-item">
+                                        <input type="time" id="start_time" name="start_time"
+                                            placeholder="Enter your Event Start Time" required />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="single-input-item">
+                                <select name="gender" placeholder="Select Your Gender" required>
+                                    <option value="M">Male</option>
+                                    <option value="F">Female</option>
+                                    <option value="O">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="single-input-item">
+                                <input type="text" id="address" name="address" placeholder="Enter Area Name" required />
+                            </div>
+
+                            <div class="single-input-item">
+                                <input type="text" id="event_description" name="event_description"
+                                    placeholder="Enter Event Description" required />
+                            </div>
+
+                            <div class="single-input-item">
+                                <input type="number" id="player_limit" name="player_limit" maxlength="20"
+                                    placeholder="Enter your Event Player Limit" required />
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="single-input-item">
+                                        <input type="email" id="email" name="email" placeholder="Enter your Email"
+                                            required />
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="single-input-item">
+                                        <input type="number" id="contact" name="contact" maxlength="10"
+                                            placeholder="Enter your Contact Number" onkeyup="Validate(this)" required />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="single-input-item">
+                                <input type="number" id="price" name="price" maxlength="10"
+                                    placeholder="Enter your Event Price" onkeyup="Validate(this)" required />
+                            </div>
+
+                            <div class="single-input-item">
+                                <input type="file" id="upload_image" name="upload_image" maxlength="20"
+                                    placeholder="Upload Event Banner" required />
+                            </div>
+
+                            <div class="single-input-item">
+                                <button type="submit" value="submit" class="btn-login">Host Event</button>
+                            </div>
+
+                        </form>
+                    </div>
+                    <!-- Login & Register Content End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--== Page Content Wrapper End ==-->
+
+    <!-- Footer Area Start -->
+    {% include 'user/footer.html' %}
+    <!-- Footer Area End -->
+
+    <!-- Scroll to Top Start -->
+    <a href="#" class="scrolltotop"><i class="fa fa-angle-up"></i></a>
+    <!-- Scroll to Top End -->
+
+    <!--=======================Javascript============================-->
+    <!--=== Jquery Min Js ===-->
+    <script src="{% static 'user/js/jquery-3.3.1.min.js' %}"></script>
+    <!--=== Jquery Migrate Min Js ===-->
+    <script src="{% static 'user/js/jquery-migrate-1.4.1.min.js' %}"></script>
+    <!--=== Popper Min Js ===-->
+    <script src="{% static 'user/js/popper.min.js'%}"></script>
+    <!--=== Bootstrap Min Js ===-->
+    <script src="{% static 'user/js/bootstrap.min.js'%}"></script>
+    <!--=== Plugins Min Js ===-->
+    <script src="{% static 'user/js/plugins.js'%}"></script>
+
+    <!--=== Active Js ===-->
+    <script src="{% static 'user/js/active.js'%}"></script>
+    <script>
+        var x = document.getElementById("demo");
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.watchPosition(showPosition);
+            } else {
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        function showPosition(position) {
+            // x.innerHTML="Latitude: " + position.coords.latitude + 
+            // "<br>Longitude: " + position.coords.longitude;
+            var a = '<a href="https://www.google.com/maps/dir/' + position.coords.latitude + ',' + position.coords.longitude + '">View For Google Location</a>';
+
+            // $("#tag").html(a);
+            $("#latitude").val(position.coords.latitude);
+            $("#longitude").val(position.coords.longitude);
+        }
+    </script>
+</body>
+
+</html>

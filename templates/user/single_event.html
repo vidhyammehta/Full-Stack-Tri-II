@@ -1,0 +1,205 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="meta description">
+
+    <title>TEAM UP!</title>
+
+    <!--=== Favicon ===-->
+    <link rel="shortcut icon" href="{% static 'user/images/voltage.png' %}" type="image/x-icon" />
+
+    <!--== Google Fonts ==-->
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Droid+Serif:400,400i,700,700i" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat:400,700" />
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--=== Bootstrap CSS ===-->
+    <link href="{% static 'user/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!--=== Font-Awesome CSS ===-->
+    <link href="{% static 'user/css/font-awesome.css' %}" rel="stylesheet">
+    <!--=== Plugins CSS ===-->
+    <link href="{% static 'user/css/plugins.css' %}" rel="stylesheet">
+    <!--=== Main Style CSS ===-->
+    <link href="{% static 'user/css/style.css' %}" rel="stylesheet">
+
+    <!-- Modernizer JS -->
+    <script src="{% static 'user/css/modernizr-2.8.3.min.js' %}"></script>
+    <style>
+        .error {
+            color: red !important;
+        }
+    </style>
+</head>
+
+<body>
+    <!--== Header Area Start ==-->
+    {% include 'user/header.html' %}
+    <!--== Header Area End ==-->
+
+    <!--== Search Box Area Start ==-->
+    <div class="body-popup-modal-area">
+        <span class="modal-close"><img src="assets/img/cancel.png" alt="Close" class="img-fluid" /></span>
+        <div class="modal-container d-flex">
+            <div class="search-box-area">
+                <div class="search-box-form">
+                    <form action="#" method="post">
+                        <input type="search" placeholder="type keyword and hit enter" />
+                        <button class="btn" type="button"><i class="fa fa-search"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--== Search Box Area End ==-->
+
+    <!--== Page Title Area Start ==-->
+    <div id="page-title-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <div class="page-title-content">
+                        <h1>Events</h1>
+                        <ul class="breadcrumb">
+                            <li><a href="{% url 'home' %}">Home</a></li>
+                            <li><a href="{% url 'events' %}" class="active">Events</a></li>
+                            {% for i in mydata %}
+                            <li><a href="/userapp/events/{{i.0}}" class="active">{{i.4}}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--== Page Title Area End ==-->
+
+    <!--== Page Content Wrapper Start ==-->
+    <div id="page-content-wrapper" class="p-9">
+        <div class="ruby-container">
+            <div class="row">
+                {% for i in mydata %}
+                <!-- Single Product Page Content Start -->
+                <div class="col-lg-12">
+                    <div class="single-product-page-content">
+                        <div class="row">
+                            <!-- Product Thumbnail Start -->
+                            <div class="col-lg-5">
+                                <div class="product-thumbnail-wrap">
+
+                                    <div class="single-thumb-item">
+                                        <a href="/userapp/events/{{i.0}}"><img class="img-fluid"
+                                                src="/media/event/{{i.12}}" alt="Product" /></a>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- Product Thumbnail End -->
+
+                            <!-- Product Details Start -->
+                            <div class="col-lg-7 mt-5 mt-lg-0 pl-5">
+                                <div class="product-details">
+                                    <h2><a href="/userapp/single_blog/{{i.0}}">{{i.4}}</a></h2>
+
+                                    <span class="price">$52.00</span>
+
+                                    <div class="product-info-stock-sku">
+                                        <span class="product-stock-status">{{i.5}}</span>
+                                        <span class="product-sku-status ml-5"><strong>{{i.7}}</strong></span>
+                                    </div>
+
+                                    <ul>
+                                        <li>
+                                            <h5><strong>SPORTS NAME:</strong> <span>{{i.3}}</span></h5>
+                                        </li>
+                                        <li>
+                                            <p>Area: <span>{{i.1}}</span></p>
+                                        </li>
+                                        <li>
+                                            <p>Player Gender: <span>{{i.6}}</span></p>
+                                        </li>
+                                        <li>
+                                            <p>Player Limits: <span>{{i.9}}</span></p>
+                                        </li>
+                                    </ul>
+
+                                    <div class="product-quantity d-flex align-items-center">
+                                        <a href="{% url 'joinevent_form' %}" target="_blank"
+                                            class="btn btn-add-to-cart">Join
+                                            Event</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Product Details End -->
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <!-- Product Full Description Start -->
+                                <div class="product-full-info-reviews">
+                                    <!-- Single Product tab Menu -->
+                                    <nav class="nav" id="nav-tab">
+                                        <a class="active" id="description-tab" data-toggle="tab"
+                                            href="#description">Description</a>
+                                    </nav>
+                                    <!-- Single Product tab Menu -->
+
+                                    <!-- Single Product tab Content -->
+                                    <div class="tab-content" id="nav-tabContent">
+                                        <div class="tab-pane fade show active" id="description">
+                                            <p>{{i.8}}</p>
+
+                                            <ul>
+                                                <li>Participants must arrive on time.</li>
+                                                <li>Follow the dress code.</li>
+                                                <li>Maintain decorum during the event.</li>
+                                                <li>No refund for cancellations.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!-- Single Product tab Content -->
+                                </div>
+                                <!-- Product Full Description End -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Single Product Page Content End -->
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!--== Page Content Wrapper End ==-->
+
+    <!-- Footer Area Start -->
+    {% include 'user/footer.html' %}
+    <!-- Footer Area End -->
+
+    <!-- Scroll to Top Start -->
+    <a href="#" class="scrolltotop"><i class="fa fa-angle-up"></i></a>
+    <!-- Scroll to Top End -->
+
+    <!--=======================Javascript============================-->
+    <!--=== Jquery Min Js ===-->
+    <script src="{% static 'user/js/jquery-3.3.1.min.js' %}"></script>
+    <!--=== Jquery Migrate Min Js ===-->
+    <script src="{% static 'user/js/jquery-migrate-1.4.1.min.js' %}"></script>
+    <!--=== Popper Min Js ===-->
+    <script src="{% static 'user/js/popper.min.js'%}"></script>
+    <!--=== Bootstrap Min Js ===-->
+    <script src="{% static 'user/js/bootstrap.min.js'%}"></script>
+    <!--=== Plugins Min Js ===-->
+    <script src="{% static 'user/js/plugins.js'%}"></script>
+
+    <!--=== Active Js ===-->
+    <script src="{% static 'user/js/active.js'%}"></script>
+</body>
+
+</html>

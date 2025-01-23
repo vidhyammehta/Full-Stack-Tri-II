@@ -1,0 +1,64 @@
+{% load static %}
+{% block content %}
+<header id="header-area" class="header__3">
+    <div class="ruby-container">
+        <div class="row">
+            <!-- Logo Area Start -->
+            <div class="col-3 col-lg-1 col-xl-2 m-auto">
+                <a href="{% url 'home' %}" class="logo-area">
+                    <img src="{% static 'user/images/logo.png' %}" alt="Logo" class="img-fluid" />
+                </a>
+            </div>
+            <!-- Logo Area End -->
+
+            <!-- Navigation Area Start -->
+            <div class="col-3 col-lg-9 col-xl-8 m-auto">
+                <div class="main-menu-wrap">
+                    <nav id="mainmenu">
+                        <ul>
+                            <li><a href="{% url 'home' %}">Home</a></li>
+                            <li><a href="{% url 'about' %}">About Us</a></li>
+                            <li><a href="{% url 'events' %}">Events</a></li>
+                            <li><a href="{% url 'blog' %}">Blog</a></li>
+                            <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!-- Navigation Area End -->
+
+            <!-- Header Right Meta Start -->
+            <div class="col-6 col-lg-2 m-auto">
+                <div class="header-right-meta text-right">
+                    <ul>
+                        <!-- Search Icon -->
+                        <li>
+                            <a href="#" class="modal-active"><i class="fa fa-search"></i></a>
+                        </li>
+
+                        <!-- Account Settings -->
+                        <li class="settings">
+                            <a href="#"><i class="fa fa-user-o"></i></a>
+                            <div class="site-settings d-block d-sm-flex">
+                                <dl class="my-account">
+                                    <dt>My Account</dt>
+                                    {% if request.session.user_id %}
+                                    <dd><a href="">Profile</a></dd>
+                                    <dd><a href="{% url 'create_event' %}">Create Event</a></dd>
+                                    <dd><a href="{% url 'create_blog' %}">Create Blog</a></dd>
+                                    <dd><a href="{% url 'logout' %}">Log Out</a></dd>
+                                    {% else %}
+                                    <dd><a href="{% url 'login' %}">Log In</a></dd>
+                                    {% endif %}
+                                </dl>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Header Right Meta End -->
+        </div>
+    </div>
+</header>
+
+{% endblock content %}

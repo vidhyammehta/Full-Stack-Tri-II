@@ -1,0 +1,198 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="meta description">
+
+    <title>TEAM UP!</title>
+
+    <!--=== Favicon ===-->
+    <link rel="shortcut icon" href="{% static 'user/images/voltage.png' %}" type="image/x-icon" />
+
+    <!--== Google Fonts ==-->
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Droid+Serif:400,400i,700,700i" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat:400,700" />
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--=== Bootstrap CSS ===-->
+    <link href="{% static 'user/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!--=== Font-Awesome CSS ===-->
+    <link href="{% static 'user/css/font-awesome.css' %}" rel="stylesheet">
+    <!--=== Plugins CSS ===-->
+    <link href="{% static 'user/css/plugins.css' %}" rel="stylesheet">
+    <!--=== Main Style CSS ===-->
+    <link href="{% static 'user/css/style.css' %}" rel="stylesheet">
+
+    <!-- Modernizer JS -->
+    <script src="{% static 'user/css/modernizr-2.8.3.min.js' %}"></script>
+    <style>
+        .error {
+            color: red !important;
+        }
+    </style>
+</head>
+
+<body>
+    <!--== Header Area Start ==-->
+    {% include 'user/header.html' %}
+    <!--== Header Area End ==-->
+
+    <!--== Search Box Area Start ==-->
+    <div class="body-popup-modal-area">
+        <span class="modal-close"><img src="assets/img/cancel.png" alt="Close" class="img-fluid" /></span>
+        <div class="modal-container d-flex">
+            <div class="search-box-area">
+                <div class="search-box-form">
+                    <form action="#" method="post">
+                        <input type="search" placeholder="type keyword and hit enter" />
+                        <button class="btn" type="button"><i class="fa fa-search"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--== Search Box Area End ==-->
+
+    <!--== Page Title Area Start ==-->
+    <div id="page-title-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <div class="page-title-content">
+                        <h1>Events</h1>
+                        <ul class="breadcrumb">
+                            <li><a href="{% url 'home' %}">Home</a></li>
+                            <li><a href="{% url 'events' %}" class="active">Events</a></li>
+                            {% for i in mydata %}
+                            <li><a href="/userapp/events/{{i.0}}" class="active">{{i.4}}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--== Page Title Area End ==-->
+
+    <!--== Page Content Wrapper Start ==-->
+    <div id="page-content-wrapper" class="p-9">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 m-auto">
+                    <!-- Login & Register Content Start -->
+                    <div class="login-register-wrapper">
+                        <!-- Login & Register tab Menu -->
+                        <nav class="nav login-reg-tab-menu">
+                            <a class="active" id="login-tab" data-toggle="tab" href="{% url 'joinevent_form' %}">Join
+                                Event</a>
+                        </nav>
+
+                        <!-- Login & Register tab Menu -->
+                        <form id="myform" action="/userapp/joineventprocess" method="POST">
+                            {% csrf_token %}
+                            <div class="single-input-item">
+                                <input type="text" id="name" name="name" onkeyup="Validatestring(this)"
+                                    placeholder="Enter Your  Name" required />
+                            </div>
+
+                            <div class="single-input-item">
+                                <input type="text" id="message" name="message" placeholder="Enter your Message"
+                                    required />
+                            </div>
+
+                            <div class="single-input-item">
+                                <button type="submit" value="submit" class="btn-login">Join Event</button>
+                            </div>
+
+                        </form>
+                        <script>
+                            // validate signup form on keyup and submit
+                            $("#myform").validate({
+                                rules: {
+                                    name: {
+                                        required: true,
+                                        minlength: 3
+                                    },
+                                    message: {
+                                        required: true,
+                                    },
+                                },
+                                messages: {
+                                    name: {
+                                        required: "Please Enter Your Name",
+                                        minlength: "Your Name must consist of at least 3 characters"
+                                    },
+                                    message: {
+                                        required: "Please Enter Your Message",
+                                        minlength: "Your message must consist of at least 10 characters"
+                                    },
+                                },
+                            });
+                            function Validate(no) {
+                                no.value = no.value.replace(/[^ 0-9\n\r]+/g, '');
+                            }
+                            function Validatestring(no) {
+                                no.value = no.value.replace(/[^ a-z A-Z\n\r]+/g, '');
+                            }
+                        </script>
+                    </div>
+                    <!-- Login & Register Content End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--== Page Content Wrapper End ==-->
+
+    <!-- Footer Area Start -->
+    {% include 'user/footer.html' %}
+    <!-- Footer Area End -->
+
+    <!-- Scroll to Top Start -->
+    <a href="#" class="scrolltotop"><i class="fa fa-angle-up"></i></a>
+    <!-- Scroll to Top End -->
+
+    <!--=======================Javascript============================-->
+    <!--=== Jquery Min Js ===-->
+    <script src="{% static 'user/js/jquery-3.3.1.min.js' %}"></script>
+    <!--=== Jquery Migrate Min Js ===-->
+    <script src="{% static 'user/js/jquery-migrate-1.4.1.min.js' %}"></script>
+    <!--=== Popper Min Js ===-->
+    <script src="{% static 'user/js/popper.min.js'%}"></script>
+    <!--=== Bootstrap Min Js ===-->
+    <script src="{% static 'user/js/bootstrap.min.js'%}"></script>
+    <!--=== Plugins Min Js ===-->
+    <script src="{% static 'user/js/plugins.js'%}"></script>
+
+    <!--=== Active Js ===-->
+    <script src="{% static 'user/js/active.js'%}"></script>
+    <script>
+        var x = document.getElementById("demo");
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.watchPosition(showPosition);
+            } else {
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        function showPosition(position) {
+            // x.innerHTML="Latitude: " + position.coords.latitude + 
+            // "<br>Longitude: " + position.coords.longitude;
+            var a = '<a href="https://www.google.com/maps/dir/' + position.coords.latitude + ',' + position.coords.longitude + '">View For Google Location</a>';
+
+            // $("#tag").html(a);
+            $("#latitude").val(position.coords.latitude);
+            $("#longitude").val(position.coords.longitude);
+        }
+    </script>
+</body>
+
+</html>

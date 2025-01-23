@@ -1,0 +1,196 @@
+{% load static %}
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Forms</title>
+    <!-- Meta Tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="keywords" content="" />
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>   
+    <!-- //Meta Tags -->
+
+    <!-- Style-sheets -->
+    <!-- Bootstrap Css -->
+    <link href="{% static 'admin/css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
+    <!-- Bootstrap Css -->
+    <!-- Common Css -->
+    <link href="{% static 'admin/css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+    <!--// Common Css -->
+    <!-- Nav Css -->
+    <link rel="stylesheet" href="{% static 'admin/css/style4.css' %}">
+    <!--// Nav Css -->
+    <!-- Fontawesome Css -->
+    <link href="{% static 'admin/css/Fontawesome-all.css' %}" rel="stylesheet">
+    <!--// Fontawesome Css -->
+    <!--// Style-sheets -->
+
+    <!--web-fonts-->
+    <link href="//fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <script src="/static/user/js/jquery-3.1.1.js"></script>    
+    <script src="/static/user/js/jquery.validate.js" ></script>
+        <style>
+            .error{
+                color:red !important;
+            }
+        </style>
+    <!--//web-fonts-->
+</head>
+
+<body>
+    {% include 'admin/sidebar.html' %}
+
+        <!-- Page Content Holder -->
+        <div id="content">
+           
+            <!-- main-heading -->
+            <h2 class="main-title-w3layouts mb-2 text-center">Sports Form</h2>
+            <!--// main-heading -->
+
+            <!-- Forms content -->
+            <section class="forms-section">
+
+         
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <!-- Forms-1 -->
+                        <div class="outer-w3-agile col-xl mt-3 mr-xl-3">
+                            <!-- <h4 class="tittle-w3-agileits mb-4">Form to add Sports:</h4> -->
+                            {% if messages %}
+                            {% for msg in messages %}
+                                <div class="alert alert-success" role="alert">
+                                    {{msg.message}}
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                            <form action="add_sportsprocess" method="post"  id="myform" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="form-group row">
+                                    <label for="text" class="col-sm-2 col-form-label">Sports Name</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="inputEmail3" placeholder="sports name" name="txt1" required="">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="text" class="col-sm-2 col-form-label">Sports Details</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="inputPassword3" placeholder="sports details" name="txt2" required="">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-sm-10">
+                                        <button type="submit" class="btn btn-primary">Add Sports</button>
+                                    </div>
+                                </div>
+                            </form>
+                            <script>
+                                // validate signup form on keyup and submit
+                               $("#myform").validate({
+                                           rules: {
+                                           txt1: {
+                                            required: true,
+                                       },  
+                                       txt2:{
+                                            required: true,
+                                       }        
+                                   },
+                                   messages: {
+                                           txt1: {
+                                           required: "Please Enter Sports Name",
+                                       },
+                                       txt2:{
+                                        required: "Please Enter Sports Details",
+                                       }
+                                },
+                                });
+                                   function Validate(no) {
+                                       no.value = no.value.replace(/[^ 0-9\n\r]+/g, '');
+                                   }
+                                       function Validatestring(no) {
+                                       no.value = no.value.replace(/[^ a-z A-Z\n\r]+/g, '');
+                                   }
+                           </script>
+                        </div>
+         </div>
+    </div>
+
+
+    <!-- Required common Js -->
+    <script src='js/jquery-2.2.3.min.js'></script>
+    <!-- //Required common Js -->
+
+    <!-- Sidebar-nav Js -->
+    <script>
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+    </script>
+    <!--// Sidebar-nav Js -->
+
+    <!-- Validation Script -->
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function () {
+            'use strict';
+
+            window.addEventListener('load', function () {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+    </script>
+    <!--// Validation Script -->
+
+    <!-- dropdown nav -->
+    <script>
+        $(document).ready(function () {
+            $(".dropdown").hover(
+                function () {
+                    $('.dropdown-menu', this).stop(true, true).slideDown("fast");
+                    $(this).toggleClass('open');
+                },
+                function () {
+                    $('.dropdown-menu', this).stop(true, true).slideUp("fast");
+                    $(this).toggleClass('open');
+                }
+            );
+        });
+    </script>
+    <!-- //dropdown nav -->
+
+    <!-- Js for bootstrap working-->
+    <script src="{% static 'admin/js/bootstrap.min.js' %}"></script>
+    <!-- //Js for bootstrap working -->
+
+</body>
+
+</html>

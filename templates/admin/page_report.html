@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<center><h1>Event Report</h1></center>
+<hr/>
+
+Date : {% now "SHORT_DATETIME_FORMAT" %}
+<br><br>
+
+<form method="post" action="/adminapp/reportevent1">
+    {% csrf_token %}
+    Sports : <select name="txt1">
+    {% for i in mydata %}
+    <option value="{{i.0}}">{{i.1}}</option>
+    {% endfor %}
+
+</select><br><br>
+<input type="submit"/>
+</form>
+<br><br>
+{% if mydata1 %}
+    <table align="center" border="1">
+            <thead>
+                <tr>
+                    <th>Event Id</th>
+                    <th>Event Name</th>
+                    <th>Event Date</th>
+                    <th>Event Time</th>
+                    <th>Event Detail</th>
+                    <th>Image</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            {% for i in mydata1 %}
+            <tr>
+                <td>{{i.0}}</td>
+                <td>{{i.4}}</td>
+                <td>{{i.5}}</td>
+                <td>{{i.6}}</td>
+                <td>{{i.8}}</td>
+                <td><img style='width:100px;' src="/media/event/{{i.12}}"></td>
+                                                
+            </tr>
+        {% endfor %}
+             </tbody><br>
+</table>
+ {% endif %}

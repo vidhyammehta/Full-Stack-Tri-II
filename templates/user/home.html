@@ -1,0 +1,540 @@
+{% extends 'user/header.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="meta description">
+
+    <title>TEAM UP!</title>
+
+    <!--=== Favicon ===-->
+    <link rel="shortcut icon" href="{% static 'user/images/voltage.png' %}" type="image/x-icon" />
+
+    <!--== Google Fonts ==-->
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Droid+Serif:400,400i,700,700i" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat:400,700" />
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--=== Bootstrap CSS ===-->
+    <link href="{% static 'user/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!--=== Font-Awesome CSS ===-->
+    <link href="{% static 'user/css/font-awesome.css' %}" rel="stylesheet">
+    <!--=== Plugins CSS ===-->
+    <link href="{% static 'user/css/plugins.css' %}" rel="stylesheet">
+    <!--=== Main Style CSS ===-->
+    <link href="{% static 'user/css/style.css' %}" rel="stylesheet">
+
+    <!-- Modernizer JS -->
+    <script src="{% static 'user/css/modernizr-2.8.3.min.js' %}"></script>
+
+</head>
+
+<body>
+    <!--== Header Area Start ==-->
+    {% include 'user/header.html' %}
+    <!--== Header Area End ==-->
+
+    <!--== Search Box Area Start ==-->
+    <div class="body-popup-modal-area">
+        <span class="modal-close"><img src="{% static '/user/images/cancel.png' %}" alt="Close"
+                class="img-fluid" /></span>
+        <div class="modal-container d-flex">
+            <div class="search-box-area">
+                <div class="search-box-form">
+                    <form action="#" method="post">
+                        <input type="search" placeholder="type keyword and hit enter" />
+                        <button class="btn" type="button"><i class="fa fa-search"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--== Search Box Area End ==-->
+
+    <!--== Banner // Slider Area Start ==-->
+    <section id="banner-area" class="banner__2">
+        <div class="ruby-container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div id="banner-carousel" class="owl-carousel">
+                        <!-- Banner Single Carousel Start -->
+                        <div class="single-carousel-wrap slide-item-1"
+                            style="background-image: url('/static/user/images/sport.jpg')">
+                            <div class=" banner-caption text-center text-lg-left">
+                                <h4>Compete</h4>
+                                <h2>🏆 Rise to the Challenge</h2>
+                                <p>Compete with the best and make your mark in the sports world!</p>
+                                <a href="{% url 'events' %}" class="btn-long-arrow">Join Now</a>
+                            </div>
+                        </div>
+                        <!-- Banner Single Carousel End -->
+
+                        <!-- Banner Single Carousel Start -->
+                        <div class="single-carousel-wrap slide-item-2"
+                            style="background-image: url('/static/user/images/banner2.jpg')">
+                            <div class="banner-caption text-center text-lg-left">
+                                <h4>Host</h4>
+                                <h2>🎯 Be the Game-Changer</h2>
+                                <p>Create unforgettable events and bring players together like never before.</p>
+                                <a href="{% url 'create_event' %}" class="btn-long-arrow">Start Hosting</a>
+                            </div>
+                        </div>
+                        <!-- Banner Single Carousel End -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--== Banner Slider End ==-->
+
+    <!--== About Us Area Start ==-->
+    <section id="aboutUs-area" class="pt-9">
+        <div class="ruby-container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <!-- About Image Area Start -->
+                    <div class="about-image-wrap">
+                        <a href="userapp/about"><img src="{% static 'user/images/banner2.jpg' %}" alt="About Us"
+                                class="img-fluid" /></a>
+                    </div>
+                    <!-- About Image Area End -->
+                </div>
+
+                <div class="col-lg-6 m-auto">
+                    <!-- About Text Area Start -->
+                    <div class="about-content-wrap ml-0 ml-lg-5 mt-5 mt-lg-0">
+                        <h2>About Us</h2>
+                        <h3>WE ARE VISIONARY</h3>
+                        <div class="about-text">
+                            <p>We are TeamUp, a platform that connects athletes, event organizers, and sports
+                                enthusiasts. Our mission is to make it easy for players to join tournaments, host
+                                events, and find like-minded teammates. With smart matchmaking and seamless event
+                                management, we bring the sports community together in a dynamic and engaging way.</p>
+
+                            <p>At TeamUp, we believe sports are more than just games—they're a way to build connections
+                                and inspire greatness. By combining technology with a passion for sports, we aim to
+                                create an inclusive platform where everyone can play, compete, and grow.</p>
+
+                            <a href="" class="btn btn-long-arrow">Learn More</a>
+
+
+                            <h4 class="vertical-text">WHO WE ARE?</h4>
+                        </div>
+                    </div>
+                    <!-- About Text Area End -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--== About Us Area End ==-->
+
+    <!--== New Collection Area Start ==-->
+    <section id="new-collection-area" class="p-9">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <!-- Section Title Start -->
+                    <div class="section-title">
+                        <h2>New Collection Products</h2>
+                        <p>Best products on sale.</p>
+                    </div>
+                    <!-- Section Title End -->
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="new-collection-tabs">
+
+                        <!-- Tab Menu Area Start -->
+                        <ul class="nav tab-menu-wrap" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="active" id="feature-products-tab" data-toggle="tab" href="#feature-products"
+                                    role="tab" aria-controls="feature-products-tab" aria-selected="true">Feature
+                                    Events</a>
+                            </li>
+                            <li class="nav-item">
+                                <a id="new-products-tab" data-toggle="tab" href="#new-products" role="tab"
+                                    aria-controls="new-products" aria-selected="false">New Events</a>
+                            </li>
+                        </ul>
+                        <!-- Tab Menu Area End -->
+
+                        <!-- Tab Content Area Start -->
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="feature-products" role="tabpanel"
+                                aria-labelledby="feature-products-tab">
+                                <div class="products-wrapper">
+                                    <div class="products-carousel owl-carousel">
+                                        <!-- Single Product Item -->
+                                        <div class="single-product-item text-center">
+                                            <figure class="product-thumb">
+                                                <a href="{% url 'events' %}"><img
+                                                        src="{% static 'user/images/b2.jpg' %}" alt="Products"
+                                                        class="img-fluid"></a>
+                                            </figure>
+
+                                            <div class="product-details">
+                                                <h2><a href="{% url 'events' %}">Battle for the Title</a></h2>
+                                                <a href="{% url 'events' %}" class="btn btn-add-to-cart">Join Event</a>
+                                            </div>
+                                        </div>
+                                        <!-- Single Product Item -->
+
+                                        <!-- Single Product Item -->
+                                        <div class="single-product-item text-center">
+                                            <figure class="product-thumb">
+                                                <a href="{% url 'events' %}"><img
+                                                        src="{% static 'user/images/c2.jpg' %}" alt="Products"
+                                                        class="img-fluid"></a>
+                                            </figure>
+
+                                            <div class="product-details">
+                                                <h2><a href="{% url 'events' %}">Capital Cavaliers</a></h2>
+                                                <a href="{% url 'events' %}" class="btn btn-add-to-cart">Join Event</a>
+                                            </div>
+                                        </div>
+                                        <!-- Single Product Item -->
+
+                                        <!-- Single Product Item -->
+                                        <div class="single-product-item text-center">
+                                            <figure class="product-thumb">
+                                                <a href="{% url 'events' %}"><img
+                                                        src="{% static 'user/images/f2.jpg' %}" alt="Products"
+                                                        class="img-fluid"></a>
+                                            </figure>
+
+                                            <div class="product-details">
+                                                <h2><a href="{% url 'events' %}">Kiss the Dalvin Cook</a></h2>
+                                                <a href="{% url 'events' %}" class="btn btn-add-to-cart">Join Event</a>
+                                            </div>
+                                        </div>
+                                        <!-- Single Product Item -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="new-products" role="tabpanel"
+                                aria-labelledby="new-products-tab">
+                                <div class="products-wrapper">
+                                    <div class="products-carousel owl-carousel">
+
+                                        <!-- Single Product Item -->
+                                        <div class="single-product-item text-center">
+                                            <figure class="product-thumb">
+                                                <a href="{% url 'events' %}"><img
+                                                        src="{% static 'user/images/f2.jpg' %}" alt="Products"
+                                                        class="img-fluid"></a>
+                                            </figure>
+
+                                            <div class="product-details">
+                                                <h2><a href="{% url 'events' %}">Kiss the Dalvin Cook</a></h2>
+                                                <a href="{% url 'events' %}" class="btn btn-add-to-cart">Join Event</a>
+                                            </div>
+                                        </div>
+                                        <!-- Single Product Item -->
+
+                                        <!-- Single Product Item -->
+                                        <div class="single-product-item text-center">
+                                            <figure class="product-thumb">
+                                                <a href="{% url 'events' %}"><img
+                                                        src="{% static 'user/images/k3.jpg' %}" alt="Products"
+                                                        class="img-fluid"></a>
+                                            </figure>
+
+                                            <div class="product-details">
+                                                <h2><a href="{% url 'events' %}">Clash of Titans: Kabaddi</a></h2>
+                                                <a href="{% url 'events' %}" class="btn btn-add-to-cart">Join Event</a>
+                                            </div>
+                                        </div>
+                                        <!-- Single Product Item -->
+
+                                        <!-- Single Product Item -->
+                                        <div class="single-product-item text-center">
+                                            <figure class="product-thumb">
+                                                <a href="{% url 'events' %}"><img
+                                                        src="{% static 'user/images/volleyball.jpg' %}" alt="Products"
+                                                        class="img-fluid"></a>
+                                            </figure>
+
+                                            <div class="product-details">
+                                                <h2><a href="{% url 'events' %}">Volleyball Club</a></h2>
+                                                <a href="{% url 'events' %}" class="btn btn-add-to-cart">Join Event</a>
+                                            </div>
+                                        </div>
+                                        <!-- Single Product Item -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Tab Content Area End -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--== New Collection Area End ==-->
+
+    <!--== Products by Category Area Start ==-->
+    <div id="product-categories-area">
+        <div class="ruby-container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="large-size-cate">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="single-cat-item">
+                                    <figure class="category-thumb">
+                                        <a href="{% url 'events' %}"><img src="{% static 'user/images/v2.jpg' %}"
+                                                alt="Women Category" class="img-fluid" /></a>
+
+                                        <figcaption class="category-name">
+                                            <a href="{% url 'events' %}">Volleyball</a>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="single-cat-item">
+                                    <figure class="category-thumb">
+                                        <a href="{% url 'events' %}"><img src="{% static 'user/images/f3.jpg' %}"
+                                                alt="Women Category" class="img-fluid" /></a>
+
+                                        <figcaption class="category-name">
+                                            <a href="{% url 'events' %}">Football</a>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="small-size-cate">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="single-cat-item">
+                                    <figure class="category-thumb">
+                                        <a href="{% url 'events' %}"><img src="{% static 'user/images/b1.avif' %}"
+                                                alt="Women Category" class="img-fluid" /></a>
+
+                                        <figcaption class="category-name">
+                                            <a href="{% url 'events' %}">Badminton</a>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="single-cat-item">
+                                    <figure class="category-thumb">
+                                        <a href="{% url 'events' %}"><img src="{% static 'user/images/f3.jpg' %}"
+                                                alt="Women Category" class="img-fluid" /></a>
+
+                                        <figcaption class="category-name">
+                                            <a href="{% url 'events' %}">Football</a>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--== Products by Category Area End ==-->
+
+    <!--== Testimonial Area Start ==-->
+    <section id="testimonial-area">
+        <div class="ruby-container">
+            <div class="testimonial-wrapper" style="background-image: url('/static/user/images/banner2.jpg')">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <!-- Section Title Start -->
+                        <div class="section-title">
+                            <h2>What People Say</h2>
+                            <p>Testimonials</p>
+                        </div>
+                        <!-- Section Title End -->
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-7 m-auto text-center">
+                        <div class="testimonial-content-wrap">
+                            <div id="testimonialCarousel" class="owl-carousel">
+                                <div class="single-testimonial-item">
+                                    <p>My assessment is Cricket pitches have been tailor made for Ipl matches. Grounds
+                                        have best batting track, small boundaries, lightening fast outfield, dew during
+                                        day and night matches. Due to this the matches look like a elongated 50 over T20
+                                        match than a Odi match. I don’t watch entire match only wat</p>
+
+                                    <h3 class="client-name">Vaibhav</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--== Testimonial Area End ==-->
+
+    <!--== Blog Area Start ==-->
+    <section id="blog-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <!-- Section Title Start -->
+                    <div class="section-title">
+                        <h2>From Our Blog</h2>
+                        <p>Share your latest posts or best articles will post here.</p>
+                    </div>
+                    <!-- Section Title End -->
+                </div>
+            </div>
+
+            <div class="blog-content-wrap">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <!-- Single Blog Item Start -->
+                        <div class="single-blog-wrap">
+                            <figure class="blog-thumb">
+                                <a href="{% url 'blog' %}"><img src="{% static 'user/images/blog1.jpg' %}" alt="blog"
+                                        class="img-fluid" /></a>
+                                <figcaption class="blog-icon">
+                                    <a href="{% url 'blog' %}"><i class="fa fa-file-image-o"></i></a>
+                                </figcaption>
+                            </figure>
+
+                            <div class="blog-details">
+                                <h3><a href="{% url 'blog' %}">Run Riot Rumble</a></h3>
+                                <span class="post-date">March 2, 2024</span>
+                                <p>Welcome to the Run Riot Rumble, a thrilling cricket event that brings together the
+                                    local community for an action-packed day of sportsmanship, camaraderie, and fierce
+                                    competition. </p>
+                                <a href="{% url 'blog' %}" class="btn-long-arrow">Read More</a>
+                            </div>
+                        </div>
+                        <!-- Single Blog Item End -->
+                    </div>
+
+                    <div class="col-lg-6 col-md-6">
+                        <!-- Single Blog Item Start -->
+                        <div class="single-blog-wrap">
+                            <figure class="blog-thumb">
+                                <a href="{% url 'blog' %}"><img src="{% static 'user/images/blog2.jpg' %}" alt="blog"
+                                        class="img-fluid" /></a>
+                                <figcaption class="blog-icon">
+                                    <a href="{% url 'blog' %}"><i class="fa fa-file-image-o"></i></a>
+                                </figcaption>
+                            </figure>
+
+                            <div class="blog-details">
+                                <h3><a href="{% url 'blog' %}">The Take Charge Challenge</a></h3>
+                                <span class="post-date">March 13, 2024</span>
+                                <p>Are you ready to witness the exhilarating clash of strength, strategy, and skill? Get
+                                    ready to immerse yourself in the pulse-pounding action of Kabaddi at the Take Charge
+                                    Challenge! </p>
+                                <a href="{% url 'blog' %}" class="btn-long-arrow">Read More</a>
+                            </div>
+                        </div>
+                        <!-- Single Blog Item End -->
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <!-- Single Blog Item Start -->
+                        <div class="single-blog-wrap">
+                            <figure class="blog-thumb">
+                                <a href="{% url 'blog' %}"><img src="{% static 'user/images/blog4.avif' %}" alt="blog"
+                                        class="img-fluid" /></a>
+                                <figcaption class="blog-icon">
+                                    <a href="{% url 'blog' %}"><i class="fa fa-file-image-o"></i></a>
+                                </figcaption>
+                            </figure>
+
+                            <div class="blog-details">
+                                <h3><a href="{% url 'blog' %}">Take the revenge</a></h3>
+                                <span class="post-date">June 20, 2024</span>
+                                <p>Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit
+                                    litterarum.</p>
+                                <a href="{% url 'blog' %}" class="btn-long-arrow">Read More</a>
+                            </div>
+                        </div>
+                        <!-- Single Blog Item End -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--== Blog Area End ==-->
+
+    <!--== Newsletter Area Start ==-->
+    <section id="newsletter-area" class="p-9">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <!-- Section Title Start -->
+                    <div class="section-title" style="background-image: url('/static/user/images/sport.jpg')">
+                        <h2>Join The Newsletter</h2>
+                        <p>Sign Up for Our Newsletter</p>
+                    </div>
+                    <!-- Section Title End -->
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-8 m-auto">
+                    <div class="newsletter-form-wrap">
+                        <form id="subscribe-form"
+                            action="https://d29u17ylf1ylz9.cloudfront.net/ruby-v2/ruby/assets/php/subscribe.php"
+                            method="post">
+                            <input id="subscribe" type="email" name="email" placeholder="Enter your Email  Here"
+                                required />
+                            <button type="submit" class="btn-long-arrow">Subscribe</button>
+                            <div id="result"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--== Newsletter Area End ==-->
+    <!-- footer -->
+    {% include 'user/footer.html' %}
+    <!-- End footer 2-->
+
+    <!-- Scroll to Top Start -->
+    <a href="#" class="scrolltotop"><i class="fa fa-angle-up"></i></a>
+    <!-- Scroll to Top End -->
+
+
+    <!--=======================Javascript============================-->
+    <!--=== Jquery Min Js ===-->
+    <script src="{% static 'user/js/jquery-3.3.1.min.js' %}"></script>
+    <!--=== Jquery Migrate Min Js ===-->
+    <script src="{% static 'user/js/jquery-migrate-1.4.1.min.js' %}"></script>
+    <!--=== Popper Min Js ===-->
+    <script src="{% static 'user/js/popper.min.js'%}"></script>
+    <!--=== Bootstrap Min Js ===-->
+    <script src="{% static 'user/js/bootstrap.min.js'%}"></script>
+    <!--=== Plugins Min Js ===-->
+    <script src="{% static 'user/js/plugins.js'%}"></script>
+
+    <!--=== Active Js ===-->
+    <script src="{% static 'user/js/active.js'%}"></script>
+</body>
+
+</html>
+{% endblock content %}

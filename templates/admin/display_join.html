@@ -1,0 +1,150 @@
+{% load static %}
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Sports Table</title>
+    <!-- Meta Tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="keywords" content="" />
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!-- //Meta Tags -->
+
+    <!-- Style-sheets -->
+    <!-- Bootstrap Css -->
+    <link href="{% static 'admin/css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
+    <!-- Bootstrap Css -->
+    <!-- Common Css -->
+    <link href="{% static 'admin/css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+    <!--// Common Css -->
+    <!-- Nav Css -->
+    <link rel="stylesheet" href="{% static 'admin/css/style4.css' %}">
+    <!--// Nav Css -->
+    <!-- Fontawesome Css -->
+    <link href="{% static 'admin/css/Fontawesome-all.css' %}" rel="stylesheet">
+    <return render(request, 'jointable.html')-// Fontawesome Css -->
+    <!--// Style-sheets -->
+
+
+    <!--web-fonts-->
+    <link href="//fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <!--//web-fonts-->
+</head>
+
+<body>
+    {% include 'admin/sidebar.html' %}
+
+        <!-- Page Content Holder -->
+        <div id="content">
+           
+            <!-- main-heading -->
+            <h2 class="main-title-w3layouts mb-2 text-center">Join Table</h2><br><br>
+            <!--// main-heading -->
+
+            <!-- Tables content -->
+            <section class="tables-section">
+             
+                <div class="outer-w3-agile mt-3">
+                    <!-- <h4 class="tittle-w3-agileits mb-4">Join Table</h4><br> -->
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Join ID</th>
+                                <th scope="col">User Name</th>
+                                <th scope="col">Message</th>
+                                <th scope="col">Join status</th>
+                                <!-- <th scope="col">User ID</th>
+                                <th scope="col">Event Rules</th> -->
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for i in mydata %}
+                            <tr>
+                                <td>{{i.0}}</td>
+                                <td>{{i.1}}</td>
+                                <td>{{i.2}}</td>
+                                <td>{{i.3}}</td>
+                                <td><a href='deletejoin/{{i.0}}'>Delete</a></td>
+
+                            </tr>
+                                {% endfor %}
+                            <!-- <tr>
+                                <th scope="row">1</th>
+                                <td></td> -->
+                                <!-- <td> The game of football develops in the players a fair mind, team effort, and competitive spirit.It is played on a rectangular field having a goal-post at each end.A team becomes the winner which scores maximum goals at the end of match.</td>
+                                <td> 1 </td>
+                                <td> 101 </td> 
+                                <td> A football game is played using a spherical ball, known as the football (or soccer ball), of 68 - 70 cm (27-28 inch) in circumference and weighs between 410 - 450 g.
+                                </td>-->
+                            <!-- </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td> </td> -->
+                                <!--<td>The cricket field is circular or oval with a rectangular pitch at the center.Cricket is as such, a good outdoor game which not only keeps you physically healthy, fit and agile but also mentally skillful and develop leadership qualities as it requires a captain to lead 11 members team.</td>
+                                <td> 2 </td>
+                                <td> 102 </td> 
+                                <td> Cricket involves five basic equipment - the ball, the bat, the wickets, stumps, and the bails. Fielding has its own set of rules for all cricket forms.One of them will be bowling the ball and another one will be a wicket-keeper and will be stationed behind the wicket. </td>
+                        --> </tbody>
+                    </table>
+                </div>
+                <!--// table5 -->
+
+            </section>
+
+        </div>
+    </div>
+
+
+    <!-- Required common Js -->
+    <script src='js/jquery-2.2.3.min.js'></script>
+    <!-- //Required common Js -->
+
+    <!-- Sidebar-nav Js -->
+    <script>
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+    </script>
+    <!--// Sidebar-nav Js -->
+
+    <!-- dropdown nav -->
+    <script>
+        $(document).ready(function () {
+            $(".dropdown").hover(
+                function () {
+                    $('.dropdown-menu', this).stop(true, true).slideDown("fast");
+                    $(this).toggleClass('open');
+                },
+                function () {
+                    $('.dropdown-menu', this).stop(true, true).slideUp("fast");
+                    $(this).toggleClass('open');
+                }
+            );
+        });
+    </script>
+    <!-- //dropdown nav -->
+
+    <!-- Js for bootstrap working-->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- //Js for bootstrap working -->
+
+</body>
+
+</html>
